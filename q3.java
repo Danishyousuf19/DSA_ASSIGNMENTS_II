@@ -7,7 +7,7 @@ Display the information of the students who has secured the highest DSA_Mark.*/
 class negative extends Exception{
    public String toString()	{
    
-   return "*ERROR* entered negative number";
+   return "*ERROR* entered invalid number";
 }
 }
 class student {
@@ -30,20 +30,26 @@ class student {
 		System.out.println("dsa marks : "+dsa_marks);
 		
 	}
-	void maxmark(int arr[]) {
-		int x=arr.length;
-		int max =-1;
-		for(int i=0;i<x;i++) {
-			if(arr[i]>max) {
-				max=arr[i];
-			}
-		}
-		System.out.println("maximum marks = "+max);
-	}
+	
 }
-
 public class q3 {
-
+	
+ static int maxmark(int a[]) throws negative {
+	 
+	 
+	int flag=0,max=-1;
+	for(int i=0;i<5;i++) {
+		if(a[i]<=0)
+			throw new negative();
+		else if(a[i]>max) {
+			max=a[i];
+			flag=i;
+		}
+		
+	}
+	System.out.println("details of student with maximum marks are :");
+	return flag;
+}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
  student s[]=new student[5];
@@ -52,17 +58,28 @@ public class q3 {
 	 s[i]=new student();
 	 try {
 		s[i].setdata();
-		s[i].getClass();
-	 arr[i]=s[i].dsa_marks;
+		s[i].getdata();
+		 arr[i]=s[i].dsa_marks;
+			
 	} catch (negative e) {
 		// TODO Auto-generated catch block
 		System.out.println(e.toString());
 		break;
 	}
+
+	
 	
  }
- student sd=new student();
- sd.maxmark(arr);
+	 try {
+		
+		 s[maxmark(arr)].getdata(); ;
+	 }
+	 catch(negative e) {
+		 System.out.println(e.toString());
+	 }
+ 
+		
+ 
   
 	}
 
