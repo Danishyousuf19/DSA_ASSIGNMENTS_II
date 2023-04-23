@@ -17,9 +17,11 @@ class negativenoo extends Exception{
 }
 class product{
 	int id,price;
+	static int totalprice=0;
 	product(int id,int price)throws negativenoo{
 		this.id=id;
 		this.price=price;
+		totalprice+=this.price;
 		if(id<=0|price<0) {
 			throw  new negativenoo();
 		}
@@ -29,17 +31,14 @@ class product{
 		System.out.println("product id = "+this.id);
 		System.out.println("price of one piece = "+this.price);
 	}
-	void total(int n) {
-		
-		System.out.println("total price for above  products = "+(n));
-	}
+	
 }
 public class q4 {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
-		int sum=0;
+		
 			product v[] =new product[5];
 			for (int i=0;i<5;i++) {
 				System.out.println("enter id and price of product");
@@ -47,11 +46,7 @@ public class q4 {
 				try {
 					v[i]=new product(x,y);
 					v[i].display();
-					sum+=v[i].price;
-					if(i==4) {
-				
-				product yy=new product(1,0);
-				yy.total(sum);
+					
 			
 					}
 				} catch (negativenoo e) {
@@ -61,6 +56,7 @@ public class q4 {
 				}
 				
 			}
+		System.out.print("total price = "+product.totalprice);
 			
 		
 	}
