@@ -17,9 +17,8 @@ class Person implements DetailInfo{
 
 
 
-static void maxcount() {
-	
-}
+static int maxcount;	
+
 	@Override
 	public void display() {
 		
@@ -29,8 +28,8 @@ static void maxcount() {
 
 	@Override
 	public int count() {
-		int c=name.length();
-		return c;
+		maxcount=name.length();
+		return maxcount;
 		
 	}
 	
