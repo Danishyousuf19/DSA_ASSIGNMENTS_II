@@ -27,7 +27,7 @@ class Gfg
         num = 98;
         mystr = "Block2";
     }
-  public class ha5{
+  public class static_block{
     public static void main(String args[])
     {
         Gfg a = new Gfg();
